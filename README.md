@@ -34,16 +34,18 @@ A Python application that polls the Sportradar MLB API and displays a real-time 
 ### SSH
 - git clone git@github.com:Vincent-Crescente/MLB_StrikeZone_App.git
 
+***
 
-### 2) (Optional) Create Virtual Environment: 
-- When in /MLB_StrikeZone_App <br>
+## 2) `cd /MLB_StrikeZone_App` <br>
+
+### (Optional) Create Virtual Environment:
 `python3 -m venv {venv}` # (name it anything you like)
 
 2.1) Activate the virtual environment <br>
 - On macOS/Linux: <br>
-`source venv/bin/activate` <br>
+`source {venv}/bin/activate` <br>
 - On Windows: <br>
-`.\venv\Scripts\activate` <br><br>
+`.\{venv}\Scripts\activate` <br><br>
 
 ### 3) After activating download the required dependencies: <br>
 `pip install -r requirements.txt`
@@ -61,9 +63,11 @@ same command just without being in the active venv. <br>
 | `--api_key`      | Yes      | Your Sportradar API key.                         |
 | `--access_level` | No       | Set to `trial` (default) or `production`.        |
 
->> `main.py --api_key YOUR_API_KEY [--access_level trial|production]`
+>> Run the program with: <br>
+>> `python -m mlb_strikezone_app.main.py --api_key YOUR_API_KEY [--access_level trial|production]`
+* Running it as a module allows for easier transition to a package.
 
-## Alternatively, create a .env file:
+## Alternatively, create a .env file to rid arguments:
 
 1) Create file:
 - `touch .env` or
@@ -73,13 +77,13 @@ same command just without being in the active venv. <br>
 `ACCESS_LEVEL=trial # or production` <br><br>
 3) Once created run with: <br>
 `python -m mlb_strikezone_app.main` <br><br>
-
+***
 
 💡 Developer Notes <br>
 
-You can practice modifying the StrikeZone display visuals by run the class directly
-without calling main.py (just calling strike_zone.py). This uses dummy data (at bottom of file) to simulate a live pitch,
-avoiding unnecessary API calls during development.
+Modifying the StrikeZone display easily by avoiding API calls by adding dummy data to the
+class calls at the bottom of strike_zone.py:<br>
+Just call: `python mlb_strikezone_app/strike_zone.py` <br>
 
 This project includes a setup.py file, 
 which is used for packaging and distribution. 
@@ -89,7 +93,7 @@ it allows for easy local installation with `pip install -e .` and could be used 
 * Considering the entry point is 'strikezone' once `pip install -e .` is used with .env configured the program can be run with just the call `strikezone`
 
 Feel free to explore or utilize the setup.py as you see fit!
-
+***
 
 🧠 Future Improvements
 - Show runners on base (text or visual).
@@ -99,7 +103,8 @@ Feel free to explore or utilize the setup.py as you see fit!
 - Package for PyPI.
 
 - Dockerize the application.
+***
 
-## 📝 License
+📝 License
 
 This project is licensed under the [MIT License](LICENSE).
