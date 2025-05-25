@@ -50,6 +50,7 @@ class MLB_API_Calls:
     def get_teams(self):
         """
         Fetch all MLB teams and return a mapping of team IDs to full team names.
+        Used to create play_outcome_codes.json. Use again in time in case MLB Teams change their names.
 
         Returns:
             dict: A dictionary with team IDs as keys and team names as values.
